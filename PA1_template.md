@@ -102,6 +102,8 @@ sum(is.na(data$steps))
 ## [1] 2304
 ```
 
+> There are 2304 rows of data missing.
+
 > Here I use the mean steps of that day to fill the missing data.
 
 
@@ -113,15 +115,6 @@ for (i in 1:nrow(data2)){
     data2$steps[i] = steps_perday[data$date[i]]  
   }
 }
-
-str(data2)
-```
-
-```
-## 'data.frame':	17568 obs. of  3 variables:
-##  $ steps   : int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ date    : chr  "2012-10-01" "2012-10-01" "2012-10-01" "2012-10-01" ...
-##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
 ```
 
 

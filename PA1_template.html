@@ -123,6 +123,9 @@ format(time[which.max(steps_perint)], &quot;%H:%M&quot;)</code></pre>
 sum(is.na(data$steps))</code></pre>
 <pre><code>## [1] 2304</code></pre>
 <blockquote>
+<p>There are 2304 rows of data missing.</p>
+</blockquote>
+<blockquote>
 <p>Here I use the mean steps of that day to fill the missing data.</p>
 </blockquote>
 <pre class="r"><code>## create new data set as data2 with missing values are filled with average of each day
@@ -131,13 +134,7 @@ for (i in 1:nrow(data2)){
   if (is.na(data$steps[i])){
     data2$steps[i] = steps_perday[data$date[i]]  
   }
-}
-
-str(data2)</code></pre>
-<pre><code>## 'data.frame':    17568 obs. of  3 variables:
-##  $ steps   : int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ date    : chr  &quot;2012-10-01&quot; &quot;2012-10-01&quot; &quot;2012-10-01&quot; &quot;2012-10-01&quot; ...
-##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...</code></pre>
+}</code></pre>
 <pre class="r"><code>## tapply to get sum of steps for each date
 steps_perday2 = tapply(data2$steps, data2$date, sum, na.rm=T)
 
